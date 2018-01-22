@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AiFi_TechExercise", "AiFi_TechExercise.csproj", "{24A1C120-1E15-D1F2-F1DF-C47EFB383057}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24A1C120-1E15-D1F2-F1DF-C47EFB383057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24A1C120-1E15-D1F2-F1DF-C47EFB383057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24A1C120-1E15-D1F2-F1DF-C47EFB383057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24A1C120-1E15-D1F2-F1DF-C47EFB383057}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
