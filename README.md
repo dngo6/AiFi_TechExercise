@@ -1,9 +1,18 @@
 # AiFi_TechExercise
 Unity project files for AiFi's exercise for Conway's Game of Life.
 
+## Initial Comments
+I have designed this simulation with modularity in mind. 
+
+As you will see below, I try to write the functions and classes as simple as possible to ensure efficient modification and scaling.
+
+Pull the project and you should be able to access both the 2D and 3D scenes in the project folder Assets-scenes.
+
+
 # System Design Specification
 ## Conway’s Game of Life
-### Updated: January 21, 2018
+### Unity Version 2017.3.0f3
+#### Updated: January 21, 2018
 ## Prompt
 Your task is to use Unity to create an implementation of Conway’s Game of Life in both 2D and 3D. You can read up on the game on the [Wikipedia page](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). For a simplified explanation of the goals, here are the rules for the 2D implementation, copied from Wikipedia:
 - Any live cell with fewer than two live neighbours dies.
