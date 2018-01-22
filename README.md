@@ -5,7 +5,7 @@ Unity project files for AiFi's exercise for Conway's Game of Life.
 ## Conway’s Game of Life
 ### Updated: January 21, 2018
 ## Prompt
-Your task is to use Unity to create an implementation of Conway’s Game of Life in both 2D and 3D. You can read up on the game on the Wikipedia page. For a simplified explanation of the goals, here are the rules for the 2D implementation, copied from Wikipedia:
+Your task is to use Unity to create an implementation of Conway’s Game of Life in both 2D and 3D. You can read up on the game on the [Wikipedia page](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). For a simplified explanation of the goals, here are the rules for the 2D implementation, copied from Wikipedia:
 - Any live cell with fewer than two live neighbours dies.
 - Any live cell with two or three live neighbours lives.
 - Any live cell with more than three live neighbours dies.
