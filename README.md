@@ -6,10 +6,10 @@ Unity project files for AiFi's exercise for Conway's Game of Life.
 ### Updated: January 21, 2018
 ## Prompt
 Your task is to use Unity to create an implementation of Conway’s Game of Life in both 2D and 3D. You can read up on the game on the Wikipedia page. For a simplified explanation of the goals, here are the rules for the 2D implementation, copied from Wikipedia:
-Any live cell with fewer than two live neighbours dies.
-Any live cell with two or three live neighbours lives.
-Any live cell with more than three live neighbours dies.
-Any dead cell with exactly three live neighbours becomes a live cell.
+- Any live cell with fewer than two live neighbours dies.
+- Any live cell with two or three live neighbours lives.
+- Any live cell with more than three live neighbours dies.
+- Any dead cell with exactly three live neighbours becomes a live cell.
 
 ## User Definable Attributes
 ### Grid Size (default 32x32 tiles)
@@ -22,56 +22,85 @@ The system in Unity consists of two classes: MainGrid and LifeBehavior
 ### MainGrid - Parent Object
 #### Attributes
 SystemState - Has two states {STANDBY, UPDATE}
+
 SystemState is STANDBY until the end of the generation then, it becomes UPDATE for 1 frame
 UPDATE will allow MainGrid to BroadcastMessage to all of the tile objects to call updateState()
 private void generateGrid() - Creates the grid and instantiate TILE child objects based on initial specifications.
-void Update() - 
+
+void Update() 
 Countdown per frame until trigger the next generation
 On UPDATE, BroadcastMessage(“updateState”)
+
 If SystemState == UPDATE, then BroadcastMessage(“takeSnapshot”)
 SystemState = STANDBY
 ##### Future Features
 private void loadGrid() - Reads an input file  (see Notes) and generates the grid based on the binary info. 
+
 float genPerSecond - indicates generations per second.
 Calculated by Time.deltaTime/genPerSecond
+
 float timeLeft - just counts down how many frames before the next UPDATE.
 If timeleft == 0, SystemState = UPDATE
 
 ## LifeBehavior - Child Object
 ### Attributes
 Status - Has two states {DEAD, ALIVE}
+
 GameObject neighbors[8] - Array of neighboring TILE objects that this TILE can pull states from.
-Same format as grid_snapshot
+- Same format as grid_snapshot
+
 grid_snapshot[0] = neighbors[0].getState();
 Assignments for each element are to be handled by the MainGrid
-int grid_snapshot [8] -  			
-      1. Each tile will have an array of size 8 to indicate the surrounding tiles. 
-      2. ex. int grid_snapshot = {0,0,0,1,1,0,1,1};
- 			|0|0|0|
- 			|1|x|1|
- 			|0|1|1|
-     3. In the case that the tile is on the corner or the edge, the boundaries will be 0
-     4.  ex. int grid_snapshot = {1,1,0,1,0,0,0,0}; //bottom right corner
- 			|1|1|0|
- 			|1|x|0|
- 			|0|0|0|
+
+int grid_snapshot [8]			
+1. Each tile will have an array of size 8 to indicate the surrounding tiles. 
+2. ex. int grid_snapshot = {0,0,0,1,1,0,1,1};
+
+|0|0|0|
+
+|1|x|1|
+
+|0|1|1|
+
+3. In the case that the tile is on the corner or the edge, the boundaries will be 0
+
+4.  ex. int grid_snapshot = {1,1,0,1,0,0,0,0}; //bottom right corner
+
+|1|1|0|
+
+|1|x|0|
+
+|0|0|0|
+
 int TILE_ID - each tile will have an ID to use as a reference
+
 private void takeSnapshot()
 On standby, take a quick snapshot of the states of the surrounding tiles.
 Should only be called once per generation.
+
 private void  updateState()
 int scenario = 1; 
-1 = underpopulated = death
+
+1 = underpopulated = death 
+
 2 = just right = lives
+
 3 = overpopulated = death
+
 4 = reproduction = lives (revives)
+
 Loop through the grid_snapshot array to determine the scenario based on the sum of the grid values.
 sum < 2, then scenario 1
+
 sum == 2 OR sum == 3, then scenario 2
+
 Don’t change state.
 sum > 3, then scenario 3
+
 sum == 3, then scenario 4
+
 if DEAD, then switch to ALIVE
+
 ## Notes:
 ### BroadcastMessage()
 Two messages to be broadcasted: STANDBY and UPDATE
